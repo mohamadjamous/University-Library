@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import localFont from "next/font/local";
+import {Toaster} from '@/components/ui/toaster';
 
 import {ReactNode} from 'react';
 
@@ -34,7 +35,10 @@ const RootLayout = ({children}: { children : ReactNode}) => {
       lang="en"
       className={`${ibmPlexSans.className} ${bebasNeue.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">{children}
+
+        <Toaster/>
+      </body>
     </html>
   );
 }
