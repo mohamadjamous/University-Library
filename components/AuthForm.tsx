@@ -24,6 +24,7 @@ import Link from "next/link";
 import { FIELD_NAMES, FIELD_TYPES } from "@/constants";
 import { useRouter } from "next/navigation";
 import ImageUpload from "@/components/ImageUpload";
+import { toast } from "@/hooks/use-toast";
 
 
 interface Props<T extends FieldValues> {
@@ -52,6 +53,25 @@ const AuthForm = <T extends FieldValues>({
 
   const handleSubmit: SubmitHandler<T> = async (data) => {
 
+    const result = await onSubmit(data);
+
+    if (result.success) {
+
+      toast({
+        title: "Success",
+        description: isSignIn
+          ? "You have successfully signed in"
+          : "You have successfully signed up"
+      });
+
+      router.push("/");
+    } else {
+      toast({
+        title: `Error ${isSignIn ? "siging in" : "signing up"}`,
+        description: result.error ?? "An error occurred",
+        variant: "destructive"
+      });
+    }
   };
 
   return (

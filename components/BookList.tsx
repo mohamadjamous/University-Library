@@ -7,7 +7,7 @@ interface Props {
   containerClassName?: string,
 }
 
-const BookList = ({title, books, containerClassName} : Props) => {
+export const BookList = ({title, books, containerClassName} : Props) => {
   return (
     <section className={containerClassName}>
 
