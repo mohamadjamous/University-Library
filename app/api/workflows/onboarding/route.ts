@@ -2,6 +2,7 @@ import { serve } from "@upstash/workflow/nextjs";
 import { db } from "@/database/drizzle";
 import { users } from "@/database/schema";
 import { eq } from "drizzle-orm";
+import {sendEmail} from '@/lib/workflow'
 
 
 type UserState = "non-active" | "active";
@@ -78,16 +79,3 @@ export const { POST } = serve<InitialData>(async (context) => {
     await context.sleep("wait-for-1-month", 60 * 60 * 24 * 30);
   }
 });
-
-
-async function sendEmail({
-  email,
-  subject,
-  message,
-}: {
-  email: string;
-  subject: string;
-  message: string;
-}) {
-  console.log(`Sending ${subject}: ${message} email to ${email}`);
-}
