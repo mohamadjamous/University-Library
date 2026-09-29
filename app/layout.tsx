@@ -8,6 +8,7 @@ import { db } from "@/database/drizzle";
 import { users } from "@/database/schema";
 import { after } from "next/server";
 import { eq } from "drizzle-orm";
+import "./globals.css";
 
 const ibmPlexSans = localFont({
   src: [
