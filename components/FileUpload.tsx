@@ -50,15 +50,16 @@ interface Props {
   folder: string;
   variant: 'dark' | 'light';
   onFileChange: (filepath: string) => void;
+  value? : string;
 }
 
 
 const FileUpload = ({
-  type, accept, placeholder, folder, variant, onFileChange
+  type, accept, placeholder, folder, variant, onFileChange, value
 }: Props) => {
 
   const ikUploadRef = useRef(null);
-  const [file, setFile] = useState<{ filePath: string } | null>(null);
+  const [file, setFile] = useState<{ filePath: string | null} >({filePath: value ?? null});
   const { toast } = useToast();
   const [progress, setprogress] = useState(0);
 

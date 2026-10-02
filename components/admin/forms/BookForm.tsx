@@ -18,6 +18,7 @@ import { bookSchema } from "@/lib/validations";
 import { toast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import FileUpload from "@/components/FileUpload";
+import ColorPicker from "../ColorPicker";
 
 interface Props extends Partial<Book> {
   type?: "create" | "update";
@@ -43,7 +44,7 @@ const BookForm = ({ type, ...book }: Props) => {
   });
 
   const onSubmit = async (values: z.infer<typeof bookSchema>) => {
-    
+    console.log(values);
   };
 
   return (
@@ -188,6 +189,7 @@ const BookForm = ({ type, ...book }: Props) => {
                 Primary Color
               </FormLabel>
               <FormControl>
+                <ColorPicker onPickerChange={field.onChange} value={field.value}/>
                
               </FormControl>
               <FormMessage />
