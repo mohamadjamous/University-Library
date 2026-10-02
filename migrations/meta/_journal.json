@@ -8,6 +8,13 @@
       "when": 1789466332460,
       "tag": "0000_curvy_stranger",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1790942863874,
+      "tag": "0001_bright_lyja",
+      "breakpoints": true
     }
   ]
 }
