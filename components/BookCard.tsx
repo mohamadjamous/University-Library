@@ -1,26 +1,24 @@
-import { cn } from '@/lib/utils'
-import Link from 'next/link'
-import React from 'react'
-import BookCover from './BookCover'
-import Image from 'next/image'
-import { Button } from './ui/button'
+import React from "react";
+import Link from "next/link";
+import BookCover from "@/components/BookCover";
+import { cn } from "@/lib/utils";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
-const BookCard = (
-{
+const BookCard = ({
   id,
-   title,
-   genre,
-   color,
-   cover,
-   isLoanedBook = false} : Book
-) => {
-  return (
-    <li className={cn(isLoanedBook && "xs:w-52 w-full")}>
+  title,
+  genre,
+  coverColor,
+  coverUrl,
+  isLoanedBook = false,
+}: Book) => (
+  <li className={cn(isLoanedBook && "xs:w-52 w-full")}>
     <Link
       href={`/books/${id}`}
       className={cn(isLoanedBook && "w-full flex flex-col items-center")}
     >
-      <BookCover coverColor={color} coverImage={cover} />
+      <BookCover coverColor={coverColor} coverImage={coverUrl} />
 
       <div className={cn("mt-4", !isLoanedBook && "xs:max-w-40 max-w-28")}>
         <p className="book-title">{title}</p>
@@ -45,7 +43,6 @@ const BookCard = (
       )}
     </Link>
   </li>
-  )
-}
+);
 
-export default BookCard 
+export default BookCard;
