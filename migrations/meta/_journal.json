@@ -15,6 +15,13 @@
       "when": 1790942863874,
       "tag": "0001_bright_lyja",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1791454651942,
+      "tag": "0002_romantic_jackpot",
+      "breakpoints": true
     }
   ]
 }
